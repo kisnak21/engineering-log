@@ -5,7 +5,13 @@
       "topic_slug": "linux-filesystem",
       "cycle": 1,
       "note": "notes/2026/09/2026-09-20-linux-filesystem.md"
+    },
+    "2026-09-21": {
+      "topic_index": 1,
+      "topic_slug": "linux-users-permissions",
+      "cycle": 1,
+      "note": "notes/2026/09/2026-09-21-linux-users-permissions.md"
     }
   },
-  "next_topic_index": 1
+  "next_topic_index": 2
 }
