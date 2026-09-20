@@ -1,0 +1,656 @@
+{
+  "version": 1,
+  "topics": [
+    {
+      "slug": "linux-filesystem",
+      "track": "homelab",
+      "title": "Linux filesystem dan path",
+      "why_it_matters": "Struktur filesystem membantu menentukan lokasi konfigurasi, data aplikasi, log, dan berkas sementara secara konsisten.",
+      "concepts": [
+        {
+          "name": "Filesystem hierarchy",
+          "description": "Direktori seperti /etc, /var, /home, dan /tmp memiliki fungsi berbeda sehingga data aplikasi tidak diletakkan sembarangan."
+        },
+        {
+          "name": "Absolute dan relative path",
+          "description": "Absolute path dimulai dari root, sedangkan relative path dihitung dari working directory saat ini."
+        }
+      ],
+      "lab_steps": [
+        "Gunakan pwd dan ls untuk mengenali working directory.",
+        "Bandingkan hasil membaca berkas dengan absolute path dan relative path.",
+        "Petakan lokasi konfigurasi, data, dan log dari satu aplikasi yang sudah dikenal."
+      ],
+      "review_questions": [
+        "Mengapa konfigurasi sistem biasanya berada di /etc?",
+        "Kapan relative path lebih berisiko daripada absolute path?"
+      ],
+      "references": [
+        {
+          "label": "Filesystem Hierarchy Standard",
+          "url": "https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html"
+        }
+      ]
+    },
+    {
+      "slug": "linux-users-permissions",
+      "track": "homelab",
+      "title": "User, group, dan permission Linux",
+      "why_it_matters": "Permission yang tepat membatasi dampak kesalahan dan mencegah service memperoleh akses lebih luas dari kebutuhannya.",
+      "concepts": [
+        {
+          "name": "Owner, group, other",
+          "description": "Setiap berkas memiliki pemilik dan grup, lalu permission dibagi untuk pemilik, grup, dan pengguna lain."
+        },
+        {
+          "name": "Least privilege",
+          "description": "Service sebaiknya berjalan dengan hak minimum yang cukup untuk menyelesaikan tugasnya."
+        }
+      ],
+      "lab_steps": [
+        "Periksa owner dan permission beberapa berkas dengan ls -l.",
+        "Buat berkas latihan lalu ubah permission baca dan tulisnya.",
+        "Jelaskan risiko menjalankan aplikasi biasa sebagai root."
+      ],
+      "review_questions": [
+        "Apa perbedaan chmod dan chown?",
+        "Mengapa permission 777 jarang menjadi solusi yang tepat?"
+      ],
+      "references": [
+        {
+          "label": "GNU Coreutils chmod",
+          "url": "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html"
+        }
+      ]
+    },
+    {
+      "slug": "processes-and-systemd",
+      "track": "homelab",
+      "title": "Process, service, dan systemd",
+      "why_it_matters": "Service homelab perlu dapat dimulai ulang, dipantau, dan dipulihkan setelah mesin reboot.",
+      "concepts": [
+        {
+          "name": "Process lifecycle",
+          "description": "Process memiliki PID, status, resource usage, dan exit code yang membantu diagnosis kegagalan."
+        },
+        {
+          "name": "Service unit",
+          "description": "Systemd unit mendeskripsikan cara service dimulai, dihentikan, direstart, dan diurutkan terhadap dependency."
+        }
+      ],
+      "lab_steps": [
+        "Cari process yang sedang berjalan menggunakan ps.",
+        "Periksa status satu service dengan systemctl status.",
+        "Baca log service tersebut melalui journalctl tanpa mengubah konfigurasi."
+      ],
+      "review_questions": [
+        "Apa arti exit code nol?",
+        "Apa beda restart policy dengan menjalankan process secara manual?"
+      ],
+      "references": [
+        {
+          "label": "systemd service documentation",
+          "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html"
+        }
+      ]
+    },
+    {
+      "slug": "ip-subnet-and-routing",
+      "track": "homelab",
+      "title": "IP address, subnet, dan routing",
+      "why_it_matters": "Pemahaman jaringan dasar diperlukan untuk menghubungkan host, container, router, dan layanan tanpa menebak konfigurasi.",
+      "concepts": [
+        {
+          "name": "Subnet",
+          "description": "Prefix jaringan menentukan bagian network dan host dari sebuah alamat IP."
+        },
+        {
+          "name": "Routing table",
+          "description": "Routing table memilih jalur berikutnya berdasarkan tujuan paket dan prefix yang paling spesifik."
+        }
+      ],
+      "lab_steps": [
+        "Catat alamat IP dan prefix perangkat yang digunakan.",
+        "Baca routing table tanpa mengubahnya.",
+        "Identifikasi default gateway dan jelaskan kapan jalur itu dipakai."
+      ],
+      "review_questions": [
+        "Apa fungsi default gateway?",
+        "Mengapa dua host dalam subnet yang sama biasanya tidak memerlukan router untuk saling berkomunikasi?"
+      ],
+      "references": [
+        {
+          "label": "ip-route manual",
+          "url": "https://man7.org/linux/man-pages/man8/ip-route.8.html"
+        }
+      ]
+    },
+    {
+      "slug": "dns-basics",
+      "track": "homelab",
+      "title": "DNS dan resolusi nama",
+      "why_it_matters": "DNS membuat layanan dapat diakses menggunakan nama yang stabil meskipun alamat IP atau lokasi service berubah.",
+      "concepts": [
+        {
+          "name": "Resolver dan authoritative server",
+          "description": "Resolver mencari jawaban, sedangkan authoritative server menyediakan data resmi untuk sebuah zona."
+        },
+        {
+          "name": "Record dan TTL",
+          "description": "Record menyimpan data seperti alamat atau alias, sementara TTL mengendalikan berapa lama jawaban boleh di-cache."
+        }
+      ],
+      "lab_steps": [
+        "Gunakan nslookup atau dig untuk membaca record sebuah domain.",
+        "Bandingkan record A, AAAA, dan CNAME.",
+        "Periksa TTL lalu jelaskan pengaruhnya terhadap perubahan DNS."
+      ],
+      "review_questions": [
+        "Apa beda resolver rekursif dan authoritative server?",
+        "Mengapa perubahan DNS tidak selalu terlihat seketika?"
+      ],
+      "references": [
+        {
+          "label": "RFC 1034 Domain Names",
+          "url": "https://www.rfc-editor.org/rfc/rfc1034"
+        }
+      ]
+    },
+    {
+      "slug": "ssh-access",
+      "track": "homelab",
+      "title": "SSH dan autentikasi berbasis key",
+      "why_it_matters": "SSH adalah jalur administrasi utama pada server dan perlu dikonfigurasi agar akses tetap praktis tanpa mengorbankan keamanan.",
+      "concepts": [
+        {
+          "name": "Public key authentication",
+          "description": "Server menyimpan public key, sedangkan private key tetap berada pada perangkat pengguna dan tidak pernah dikirim."
+        },
+        {
+          "name": "Host verification",
+          "description": "Fingerprint host membantu mendeteksi ketika koneksi diarahkan ke server yang berbeda dari sebelumnya."
+        }
+      ],
+      "lab_steps": [
+        "Buat pasangan key khusus latihan tanpa membagikan private key.",
+        "Periksa fingerprint public key yang dibuat.",
+        "Tulis daftar permission aman untuk folder .ssh dan authorized_keys."
+      ],
+      "review_questions": [
+        "Mengapa private key tidak boleh masuk repository?",
+        "Apa tujuan file known_hosts?"
+      ],
+      "references": [
+        {
+          "label": "OpenSSH manual pages",
+          "url": "https://www.openssh.com/manual.html"
+        }
+      ]
+    },
+    {
+      "slug": "docker-images-containers",
+      "track": "homelab",
+      "title": "Docker image dan container",
+      "why_it_matters": "Perbedaan image dan container membantu memahami proses build, runtime, pembaruan, serta penyimpanan data aplikasi.",
+      "concepts": [
+        {
+          "name": "Immutable image",
+          "description": "Image berisi layer aplikasi yang digunakan sebagai template untuk membuat container."
+        },
+        {
+          "name": "Container lifecycle",
+          "description": "Container dapat dibuat, dijalankan, dihentikan, dan dihapus tanpa mengubah image asalnya."
+        }
+      ],
+      "lab_steps": [
+        "Jalankan image ringan lalu periksa container yang terbentuk.",
+        "Bandingkan daftar image dengan daftar container.",
+        "Hapus container latihan dan pastikan image masih tersedia."
+      ],
+      "review_questions": [
+        "Apa perbedaan image dan container?",
+        "Mengapa data penting tidak sebaiknya hanya disimpan pada writable layer container?"
+      ],
+      "references": [
+        {
+          "label": "Docker container concepts",
+          "url": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/"
+        }
+      ]
+    },
+    {
+      "slug": "docker-compose",
+      "track": "homelab",
+      "title": "Menata service dengan Docker Compose",
+      "why_it_matters": "Compose menyimpan konfigurasi beberapa container sebagai berkas yang dapat ditinjau dan dijalankan ulang secara konsisten.",
+      "concepts": [
+        {
+          "name": "Declarative services",
+          "description": "Berkas Compose mendeskripsikan service, network, volume, dan dependency yang diinginkan."
+        },
+        {
+          "name": "Environment configuration",
+          "description": "Konfigurasi dapat dipisahkan dari image, tetapi secret tetap tidak boleh dimasukkan ke repository."
+        }
+      ],
+      "lab_steps": [
+        "Buat Compose sederhana untuk satu web server lokal.",
+        "Validasi konfigurasi dengan docker compose config.",
+        "Hentikan dan buat ulang service untuk menguji reproducibility."
+      ],
+      "review_questions": [
+        "Apa keuntungan Compose dibanding rangkaian docker run panjang?",
+        "Data apa yang tidak boleh ditulis langsung di compose.yaml?"
+      ],
+      "references": [
+        {
+          "label": "Docker Compose documentation",
+          "url": "https://docs.docker.com/compose/"
+        }
+      ]
+    },
+    {
+      "slug": "docker-storage-backup",
+      "track": "homelab",
+      "title": "Docker volume dan dasar backup",
+      "why_it_matters": "Container dapat dibuat ulang, tetapi data persisten perlu ditempatkan dan dicadangkan secara sengaja.",
+      "concepts": [
+        {
+          "name": "Volume persistence",
+          "description": "Volume memiliki lifecycle terpisah dari container sehingga data dapat bertahan setelah container diganti."
+        },
+        {
+          "name": "Restore verification",
+          "description": "Backup baru bernilai jika proses restore pernah diuji dan hasilnya dapat dibaca."
+        }
+      ],
+      "lab_steps": [
+        "Buat volume latihan dan tulis satu berkas ke dalamnya.",
+        "Ganti container lalu pastikan data masih tersedia.",
+        "Rancang prosedur backup dan restore tanpa memakai data penting."
+      ],
+      "review_questions": [
+        "Apa beda bind mount dan named volume?",
+        "Mengapa keberhasilan job backup belum membuktikan data dapat dipulihkan?"
+      ],
+      "references": [
+        {
+          "label": "Docker volumes",
+          "url": "https://docs.docker.com/engine/storage/volumes/"
+        }
+      ]
+    },
+    {
+      "slug": "container-networking",
+      "track": "homelab",
+      "title": "Docker network dan komunikasi service",
+      "why_it_matters": "Network yang terpisah membantu service saling menemukan sekaligus membatasi port yang perlu diekspos ke host.",
+      "concepts": [
+        {
+          "name": "Service discovery",
+          "description": "Container pada network Compose yang sama dapat menggunakan nama service sebagai hostname."
+        },
+        {
+          "name": "Published port",
+          "description": "Port hanya perlu dipublikasikan ketika koneksi harus datang dari luar network container."
+        }
+      ],
+      "lab_steps": [
+        "Buat dua service pada network Compose yang sama.",
+        "Uji komunikasi menggunakan nama service.",
+        "Identifikasi port yang dapat tetap internal dan tidak perlu dipublikasikan."
+      ],
+      "review_questions": [
+        "Apa beda expose dan publish port?",
+        "Mengapa database sering tidak perlu dipublikasikan ke seluruh jaringan?"
+      ],
+      "references": [
+        {
+          "label": "Docker networking overview",
+          "url": "https://docs.docker.com/engine/network/"
+        }
+      ]
+    },
+    {
+      "slug": "reverse-proxy",
+      "track": "homelab",
+      "title": "Reverse proxy untuk beberapa service",
+      "why_it_matters": "Reverse proxy menyediakan satu pintu masuk dan meneruskan request ke service yang tepat berdasarkan host atau path.",
+      "concepts": [
+        {
+          "name": "Request forwarding",
+          "description": "Proxy menerima request klien lalu membuat request baru menuju upstream yang dipilih."
+        },
+        {
+          "name": "Forwarded headers",
+          "description": "Header proxy membawa informasi seperti host dan alamat klien, tetapi hanya boleh dipercaya dari proxy yang dikenal."
+        }
+      ],
+      "lab_steps": [
+        "Gambar alur browser, reverse proxy, dan dua upstream service.",
+        "Buat konfigurasi lokal untuk meneruskan satu hostname ke satu service.",
+        "Periksa Host dan X-Forwarded-For yang diterima aplikasi."
+      ],
+      "review_questions": [
+        "Apa beda reverse proxy dan forward proxy?",
+        "Mengapa aplikasi perlu mengetahui proxy mana yang dapat dipercaya?"
+      ],
+      "references": [
+        {
+          "label": "NGINX reverse proxy guide",
+          "url": "https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/"
+        }
+      ]
+    },
+    {
+      "slug": "tls-certificates",
+      "track": "homelab",
+      "title": "TLS certificate dan HTTPS",
+      "why_it_matters": "TLS melindungi data saat transit dan membantu klien memverifikasi identitas server yang dituju.",
+      "concepts": [
+        {
+          "name": "Certificate chain",
+          "description": "Klien memverifikasi certificate server melalui rantai ke certificate authority yang dipercaya."
+        },
+        {
+          "name": "Renewal",
+          "description": "Certificate memiliki masa berlaku sehingga pembaruan dan pemantauan perlu diotomatisasi."
+        }
+      ],
+      "lab_steps": [
+        "Periksa issuer dan masa berlaku certificate sebuah situs publik.",
+        "Catat domain yang tercakup pada Subject Alternative Name.",
+        "Rancang pengingat sebelum masa berlaku berakhir."
+      ],
+      "review_questions": [
+        "Apa yang diverifikasi oleh browser ketika membuka HTTPS?",
+        "Mengapa private key TLS tidak boleh dikirim ke repository?"
+      ],
+      "references": [
+        {
+          "label": "Let's Encrypt documentation",
+          "url": "https://letsencrypt.org/docs/"
+        }
+      ]
+    },
+    {
+      "slug": "monitoring-and-alerting",
+      "track": "homelab",
+      "title": "Monitoring, metric, dan alert",
+      "why_it_matters": "Monitoring membantu membedakan service sehat, melambat, atau gagal berdasarkan data yang dapat diperiksa.",
+      "concepts": [
+        {
+          "name": "Metric",
+          "description": "Metric adalah pengukuran numerik bertimestamp seperti latency, error rate, atau penggunaan resource."
+        },
+        {
+          "name": "Actionable alert",
+          "description": "Alert sebaiknya menunjukkan kondisi yang memerlukan tindakan, bukan setiap perubahan kecil."
+        }
+      ],
+      "lab_steps": [
+        "Pilih tiga metric yang relevan untuk sebuah web service.",
+        "Bedakan gejala dan penyebab pada contoh penggunaan CPU tinggi.",
+        "Tulis satu aturan alert beserta tindakan pertama ketika alert muncul."
+      ],
+      "review_questions": [
+        "Apa beda metric, log, dan trace?",
+        "Mengapa terlalu banyak alert dapat menurunkan kualitas respons insiden?"
+      ],
+      "references": [
+        {
+          "label": "Prometheus overview",
+          "url": "https://prometheus.io/docs/introduction/overview/"
+        }
+      ]
+    },
+    {
+      "slug": "http-request-response",
+      "track": "web-development",
+      "title": "HTTP request dan response",
+      "why_it_matters": "Aplikasi web bergantung pada pertukaran request dan response, termasuk method, header, status, dan body.",
+      "concepts": [
+        {
+          "name": "HTTP semantics",
+          "description": "Method dan status code menyampaikan maksud operasi serta hasilnya tanpa bergantung pada tampilan aplikasi."
+        },
+        {
+          "name": "Headers",
+          "description": "Header membawa metadata seperti tipe konten, aturan cache, autentikasi, dan kemampuan klien."
+        }
+      ],
+      "lab_steps": [
+        "Periksa request dan response sebuah halaman melalui browser DevTools.",
+        "Catat method, status code, content type, dan cache header.",
+        "Jelaskan alasan endpoint memilih GET atau POST."
+      ],
+      "review_questions": [
+        "Apa perbedaan status 4xx dan 5xx?",
+        "Mengapa GET seharusnya tidak digunakan untuk operasi yang mengubah data?"
+      ],
+      "references": [
+        {
+          "label": "MDN HTTP overview",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+        }
+      ]
+    },
+    {
+      "slug": "frontend-rendering",
+      "track": "web-development",
+      "title": "Rendering frontend dan hydration",
+      "why_it_matters": "Pilihan rendering memengaruhi waktu tampil, interaktivitas, kebutuhan JavaScript, dan cara data diperbarui.",
+      "concepts": [
+        {
+          "name": "Server dan client rendering",
+          "description": "HTML dapat disiapkan di server atau dibentuk di browser, dengan tradeoff berbeda untuk loading dan interaktivitas."
+        },
+        {
+          "name": "Hydration",
+          "description": "Hydration menghubungkan JavaScript aplikasi ke HTML yang sebelumnya sudah dirender."
+        }
+      ],
+      "lab_steps": [
+        "Nonaktifkan JavaScript sementara dan periksa bagian halaman yang tetap tersedia.",
+        "Bandingkan HTML awal dengan DOM setelah aplikasi interaktif.",
+        "Identifikasi komponen yang benar-benar memerlukan JavaScript klien."
+      ],
+      "review_questions": [
+        "Apa manfaat mengirim HTML awal dari server?",
+        "Apa yang dapat menyebabkan hydration mismatch?"
+      ],
+      "references": [
+        {
+          "label": "MDN client-side rendering",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Introducing_complete_toolchain"
+        }
+      ]
+    },
+    {
+      "slug": "api-contracts",
+      "track": "web-development",
+      "title": "Kontrak API dan penanganan error",
+      "why_it_matters": "Kontrak yang konsisten membuat client dapat memproses keberhasilan dan kegagalan tanpa bergantung pada tebakan.",
+      "concepts": [
+        {
+          "name": "Stable response shape",
+          "description": "Struktur response yang terdokumentasi mengurangi coupling tersembunyi antara client dan server."
+        },
+        {
+          "name": "Error classification",
+          "description": "Status code dan error code aplikasi membantu membedakan input salah, akses ditolak, dan kegagalan server."
+        }
+      ],
+      "lab_steps": [
+        "Tulis contoh response sukses dan error untuk satu endpoint.",
+        "Pisahkan pesan aman untuk pengguna dari detail internal untuk log.",
+        "Tentukan validasi yang dilakukan sebelum operasi database."
+      ],
+      "review_questions": [
+        "Mengapa server tidak boleh mengirim stack trace kepada pengguna?",
+        "Kapan status 400, 401, 403, dan 404 digunakan?"
+      ],
+      "references": [
+        {
+          "label": "RFC 9110 HTTP Semantics",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110"
+        }
+      ]
+    },
+    {
+      "slug": "session-security",
+      "track": "web-development",
+      "title": "Session, cookie, dan autentikasi web",
+      "why_it_matters": "Session menghubungkan request dengan identitas pengguna dan menjadi target penting dalam keamanan aplikasi.",
+      "concepts": [
+        {
+          "name": "Session identifier",
+          "description": "Identifier harus sulit ditebak, memiliki lifecycle yang jelas, dan tidak memuat data sensitif yang mudah dibaca."
+        },
+        {
+          "name": "Cookie attributes",
+          "description": "Secure, HttpOnly, dan SameSite membatasi cara cookie dikirim dan diakses."
+        }
+      ],
+      "lab_steps": [
+        "Periksa atribut cookie sebuah aplikasi latihan melalui DevTools.",
+        "Gambar alur login, pembuatan session, request terautentikasi, dan logout.",
+        "Tentukan kapan session harus dirotasi atau dicabut."
+      ],
+      "review_questions": [
+        "Apa fungsi atribut HttpOnly?",
+        "Mengapa session identifier perlu diganti setelah login?"
+      ],
+      "references": [
+        {
+          "label": "OWASP Session Management Cheat Sheet",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+        }
+      ]
+    },
+    {
+      "slug": "postgresql-indexes",
+      "track": "web-development",
+      "title": "Index PostgreSQL dan query plan",
+      "why_it_matters": "Index dapat mempercepat pencarian, tetapi menambah biaya penyimpanan dan penulisan sehingga perlu dipilih berdasarkan query nyata.",
+      "concepts": [
+        {
+          "name": "Index lookup",
+          "description": "Planner dapat memakai index untuk mengurangi jumlah row yang perlu diperiksa."
+        },
+        {
+          "name": "Write overhead",
+          "description": "Setiap perubahan data juga perlu memperbarui index terkait."
+        }
+      ],
+      "lab_steps": [
+        "Buat tabel latihan dengan data non-sensitif.",
+        "Bandingkan EXPLAIN sebelum dan setelah menambahkan index yang relevan.",
+        "Catat query yang terbantu dan operasi tulis yang menerima biaya tambahan."
+      ],
+      "review_questions": [
+        "Mengapa tidak semua kolom perlu diberi index?",
+        "Apa informasi utama yang dicari dari EXPLAIN?"
+      ],
+      "references": [
+        {
+          "label": "PostgreSQL indexes",
+          "url": "https://www.postgresql.org/docs/current/indexes.html"
+        }
+      ]
+    },
+    {
+      "slug": "automated-testing",
+      "track": "web-development",
+      "title": "Strategi automated testing",
+      "why_it_matters": "Test yang tepat memberi umpan balik cepat dan melindungi perilaku penting tanpa membuat suite rapuh.",
+      "concepts": [
+        {
+          "name": "Test boundary",
+          "description": "Unit, integration, dan end-to-end test memeriksa batas sistem yang berbeda dengan biaya eksekusi berbeda."
+        },
+        {
+          "name": "Behavior over implementation",
+          "description": "Test yang fokus pada perilaku cenderung tetap berguna ketika struktur internal direfaktor."
+        }
+      ],
+      "lab_steps": [
+        "Pilih satu fungsi murni dan tulis test untuk kondisi normal serta batas.",
+        "Pilih satu integrasi API atau database dan definisikan kontrak yang diuji.",
+        "Tulis satu skenario end-to-end untuk alur pengguna yang paling penting."
+      ],
+      "review_questions": [
+        "Mengapa semua kasus tidak perlu diuji melalui browser?",
+        "Apa ciri test yang terlalu bergantung pada detail implementasi?"
+      ],
+      "references": [
+        {
+          "label": "The Practical Test Pyramid",
+          "url": "https://martinfowler.com/articles/practical-test-pyramid.html"
+        }
+      ]
+    },
+    {
+      "slug": "github-actions-ci",
+      "track": "web-development",
+      "title": "CI dengan GitHub Actions",
+      "why_it_matters": "CI menjalankan pemeriksaan yang sama pada perubahan kode sehingga kegagalan dapat ditemukan sebelum deployment.",
+      "concepts": [
+        {
+          "name": "Workflow trigger",
+          "description": "Workflow dapat berjalan berdasarkan push, pull request, jadwal, atau pemicu manual."
+        },
+        {
+          "name": "Least privilege token",
+          "description": "GITHUB_TOKEN sebaiknya hanya diberi permission yang dibutuhkan oleh job."
+        }
+      ],
+      "lab_steps": [
+        "Buat daftar pemeriksaan yang perlu berjalan pada pull request.",
+        "Pisahkan job cepat seperti lint dari test yang lebih berat.",
+        "Periksa permission token dan hapus akses tulis yang tidak diperlukan."
+      ],
+      "review_questions": [
+        "Apa beda trigger push dan pull_request?",
+        "Mengapa workflow perlu timeout dan concurrency policy?"
+      ],
+      "references": [
+        {
+          "label": "GitHub Actions documentation",
+          "url": "https://docs.github.com/en/actions"
+        }
+      ]
+    },
+    {
+      "slug": "web-security-headers",
+      "track": "web-development",
+      "title": "Security header untuk aplikasi web",
+      "why_it_matters": "Header keamanan memberi browser aturan tambahan untuk membatasi pemuatan resource dan perilaku berisiko.",
+      "concepts": [
+        {
+          "name": "Content Security Policy",
+          "description": "CSP membatasi sumber script, style, gambar, dan resource lain yang diizinkan."
+        },
+        {
+          "name": "Transport and framing policy",
+          "description": "HSTS dan frame restrictions membantu mencegah downgrade koneksi serta embedding yang tidak diinginkan."
+        }
+      ],
+      "lab_steps": [
+        "Periksa response header aplikasi latihan.",
+        "Buat CSP dalam mode report-only sebelum memberlakukannya.",
+        "Catat resource yang diblokir dan perbaiki policy secara bertahap."
+      ],
+      "review_questions": [
+        "Mengapa CSP yang terlalu longgar memberi perlindungan terbatas?",
+        "Mengapa HSTS perlu diterapkan dengan hati-hati?"
+      ],
+      "references": [
+        {
+          "label": "OWASP HTTP Headers Cheat Sheet",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+        }
+      ]
+    }
+  ]
+}
