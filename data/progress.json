@@ -1,4 +1,11 @@
 {
-  "entries": {},
-  "next_topic_index": 0
+  "entries": {
+    "2026-09-20": {
+      "topic_index": 0,
+      "topic_slug": "linux-filesystem",
+      "cycle": 1,
+      "note": "notes/2026/09/2026-09-20-linux-filesystem.md"
+    }
+  },
+  "next_topic_index": 1
 }

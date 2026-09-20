@@ -7,7 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-Belum ada catatan. Jalankan workflow **Daily engineering log** untuk membuat catatan pertama.
+[2026-09-20: Linux filesystem dan path](notes/2026/09/2026-09-20-linux-filesystem.md)
+
+Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
