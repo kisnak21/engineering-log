@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-09-21: User, group, dan permission Linux](notes/2026/09/2026-09-21-linux-users-permissions.md)
+[2026-09-24: Process, service, dan systemd](notes/2026/09/2026-09-24-processes-and-systemd.md)
 
 Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->

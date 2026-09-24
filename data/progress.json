@@ -11,7 +11,13 @@
       "topic_slug": "linux-users-permissions",
       "cycle": 1,
       "note": "notes/2026/09/2026-09-21-linux-users-permissions.md"
+    },
+    "2026-09-24": {
+      "topic_index": 2,
+      "topic_slug": "processes-and-systemd",
+      "cycle": 1,
+      "note": "notes/2026/09/2026-09-24-processes-and-systemd.md"
     }
   },
-  "next_topic_index": 2
+  "next_topic_index": 3
 }
