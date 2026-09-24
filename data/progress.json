@@ -17,7 +17,13 @@
       "topic_slug": "processes-and-systemd",
       "cycle": 1,
       "note": "notes/2026/09/2026-09-24-processes-and-systemd.md"
+    },
+    "2026-09-25": {
+      "topic_index": 3,
+      "topic_slug": "ip-subnet-and-routing",
+      "cycle": 1,
+      "note": "notes/2026/09/2026-09-25-ip-subnet-and-routing.md"
     }
   },
-  "next_topic_index": 3
+  "next_topic_index": 4
 }

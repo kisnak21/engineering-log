@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-09-24: Process, service, dan systemd](notes/2026/09/2026-09-24-processes-and-systemd.md)
+[2026-09-25: IP address, subnet, dan routing](notes/2026/09/2026-09-25-ip-subnet-and-routing.md)
 
 Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
