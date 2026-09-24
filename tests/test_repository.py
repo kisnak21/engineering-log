@@ -12,13 +12,17 @@ from scripts.engineering_log.repository import DailyLogGenerator
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
+INITIAL_PROGRESS = {
+    "entries": {},
+    "next_topic_index": 0,
+}
 
 
 class RepositoryGenerationTest(unittest.TestCase):
     def test_offline_generation_is_idempotent(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             root = Path(temporary_directory)
-            self._copy_fixture_files(root)
+            self._create_fixture_files(root)
             config = RuntimeConfig(
                 repository_root=root,
                 target_date=date(2026, 9, 20),
@@ -41,11 +45,14 @@ class RepositoryGenerationTest(unittest.TestCase):
             progress = json.loads((root / "data" / "progress.json").read_text(encoding="utf-8"))
             self.assertEqual(1, progress["next_topic_index"])
 
-    def _copy_fixture_files(self, root: Path) -> None:
+    def _create_fixture_files(self, root: Path) -> None:
         (root / "config").mkdir()
         (root / "data").mkdir()
         shutil.copy(REPOSITORY_ROOT / "config" / "curriculum.json", root / "config")
-        shutil.copy(REPOSITORY_ROOT / "data" / "progress.json", root / "data")
+        (root / "data" / "progress.json").write_text(
+            json.dumps(INITIAL_PROGRESS, indent=2) + "\n",
+            encoding="utf-8",
+        )
         shutil.copy(REPOSITORY_ROOT / "README.md", root)
 
 
