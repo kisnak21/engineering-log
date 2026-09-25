@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-09-25: IP address, subnet, dan routing](notes/2026/09/2026-09-25-ip-subnet-and-routing.md)
+[2026-09-26: DNS dan resolusi nama](notes/2026/09/2026-09-26-dns-basics.md)
 
-Track: `homelab` | Review: `pending` | Generator: `openrouter`
+Track: `homelab` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis

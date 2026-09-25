@@ -23,7 +23,13 @@
       "topic_slug": "ip-subnet-and-routing",
       "cycle": 1,
       "note": "notes/2026/09/2026-09-25-ip-subnet-and-routing.md"
+    },
+    "2026-09-26": {
+      "topic_index": 4,
+      "topic_slug": "dns-basics",
+      "cycle": 1,
+      "note": "notes/2026/09/2026-09-26-dns-basics.md"
     }
   },
-  "next_topic_index": 4
+  "next_topic_index": 5
 }
