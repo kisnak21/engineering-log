@@ -29,7 +29,13 @@
       "topic_slug": "dns-basics",
       "cycle": 1,
       "note": "notes/2026/09/2026-09-26-dns-basics.md"
+    },
+    "2026-09-27": {
+      "topic_index": 5,
+      "topic_slug": "ssh-access",
+      "cycle": 1,
+      "note": "notes/2026/09/2026-09-27-ssh-access.md"
     }
   },
-  "next_topic_index": 5
+  "next_topic_index": 6
 }
