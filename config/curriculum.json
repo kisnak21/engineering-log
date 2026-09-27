@@ -126,6 +126,37 @@
       ]
     },
     {
+      "slug": "firewall-basics",
+      "track": "homelab",
+      "title": "Dasar firewall (UFW/iptables)",
+      "why_it_matters": "Firewall mencegah eksposur port yang tidak disengaja ke jaringan publik dan membatasi traffic ke aplikasi internal.",
+      "concepts": [
+        {
+          "name": "Default deny",
+          "description": "Pendekatan keamanan di mana semua traffic ditolak kecuali secara eksplisit diizinkan."
+        },
+        {
+          "name": "Stateless vs Stateful",
+          "description": "Stateful firewall melacak koneksi aktif sehingga balasan untuk koneksi yang sah diizinkan otomatis."
+        }
+      ],
+      "lab_steps": [
+        "Aktifkan ufw dengan aturan default deny inbound.",
+        "Izinkan port SSH agar tidak kehilangan akses.",
+        "Coba block ping (ICMP) untuk melihat efek dari rule."
+      ],
+      "review_questions": [
+        "Mengapa default deny lebih disarankan dari default allow?",
+        "Apa bahayanya langsung mengaktifkan firewall tanpa mengizinkan SSH?"
+      ],
+      "references": [
+        {
+          "label": "UFW Essentials",
+          "url": "https://help.ubuntu.com/community/UFW"
+        }
+      ]
+    },
+    {
       "slug": "dns-basics",
       "track": "homelab",
       "title": "DNS dan resolusi nama",
@@ -343,6 +374,37 @@
       ]
     },
     {
+      "slug": "vpn-wireguard",
+      "track": "homelab",
+      "title": "VPN dengan WireGuard",
+      "why_it_matters": "Mengekspos layanan secara langsung ke internet sangat berisiko. VPN memungkinkan akses aman dari luar jaringan rumah.",
+      "concepts": [
+        {
+          "name": "Cryptokey routing",
+          "description": "WireGuard menggunakan kunci publik untuk autentikasi dan enkripsi routing antar node."
+        },
+        {
+          "name": "Peer-to-peer VPN",
+          "description": "Tidak ada arsitektur client-server murni; setiap titik adalah peer yang saling terhubung."
+        }
+      ],
+      "lab_steps": [
+        "Buat sepasang private/public key.",
+        "Konfigurasi peer A dan peer B agar dapat saling ping melalui IP tunnel.",
+        "Tinjau log jika handshake gagal."
+      ],
+      "review_questions": [
+        "Apa keunggulan WireGuard dibandingkan OpenVPN?",
+        "Bagaimana cara peer mengenali peer lainnya secara aman?"
+      ],
+      "references": [
+        {
+          "label": "WireGuard Quick Start",
+          "url": "https://www.wireguard.com/quickstart/"
+        }
+      ]
+    },
+    {
       "slug": "tls-certificates",
       "track": "homelab",
       "title": "TLS certificate dan HTTPS",
@@ -405,6 +467,68 @@
       ]
     },
     {
+      "slug": "ansible-basics",
+      "track": "homelab",
+      "title": "Configuration management dengan Ansible",
+      "why_it_matters": "Manajemen manual menyebabkan server menjadi \"snowflake\". Ansible membuat pengaturan dapat dideskripsikan sebagai kode yang dapat diulang.",
+      "concepts": [
+        {
+          "name": "Idempotency",
+          "description": "Menjalankan playbook Ansible berkali-kali harus menghasilkan state yang sama seperti menjalankannya sekali."
+        },
+        {
+          "name": "Agentless",
+          "description": "Ansible tidak memerlukan agen di server target, cukup SSH dan Python."
+        }
+      ],
+      "lab_steps": [
+        "Buat inventory file dengan localhost atau server lab.",
+        "Tulis satu tugas untuk memastikan sebuah file konfigurasi ada.",
+        "Jalankan playbook dan perhatikan bahwa task tidak mengubah apa pun pada eksekusi kedua."
+      ],
+      "review_questions": [
+        "Apa itu idempotency dalam konteks Ansible?",
+        "Mengapa arsitektur agentless menguntungkan?"
+      ],
+      "references": [
+        {
+          "label": "Ansible Getting Started",
+          "url": "https://docs.ansible.com/ansible/latest/getting_started/index.html"
+        }
+      ]
+    },
+    {
+      "slug": "storage-zfs-raid",
+      "track": "homelab",
+      "title": "Manajemen Storage dan ZFS",
+      "why_it_matters": "Data lab dan backup perlu penyimpanan yang tangguh. ZFS menawarkan perlindungan terhadap bit rot dan fleksibilitas volume.",
+      "concepts": [
+        {
+          "name": "Copy-on-write",
+          "description": "Data lama tidak langsung ditimpa, memungkinkan snapshot yang efisien tanpa beban kinerja."
+        },
+        {
+          "name": "RAID-Z",
+          "description": "Implementasi RAID dari ZFS yang menggabungkan disk redundancy dengan filesystem integrity."
+        }
+      ],
+      "lab_steps": [
+        "Buat zpool sederhana dari satu atau dua block device.",
+        "Buat snapshot dari dataset dan ubah isi foldernya.",
+        "Rollback filesystem ke snapshot tersebut."
+      ],
+      "review_questions": [
+        "Mengapa copy-on-write sangat bermanfaat untuk backup?",
+        "Apa beda RAID tradisional dengan ZFS?"
+      ],
+      "references": [
+        {
+          "label": "OpenZFS Documentation",
+          "url": "https://openzfs.github.io/openzfs-docs/"
+        }
+      ]
+    },
+    {
       "slug": "http-request-response",
       "track": "web-development",
       "title": "HTTP request dan response",
@@ -432,6 +556,37 @@
         {
           "label": "MDN HTTP overview",
           "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+        }
+      ]
+    },
+    {
+      "slug": "caching-strategies",
+      "track": "web-development",
+      "title": "Strategi caching dan Cache-Control",
+      "why_it_matters": "Caching yang agresif mempercepat waktu muat, tetapi salah konfigurasi bisa menyajikan data kadaluarsa kepada pengguna.",
+      "concepts": [
+        {
+          "name": "Cache busting",
+          "description": "Menambahkan hash pada nama file statis agar browser mengunduh versi baru secara otomatis ketika file berubah."
+        },
+        {
+          "name": "Cache-Control headers",
+          "description": "Instruksi yang diberikan server kepada klien dan proxy tentang berapa lama respons bisa digunakan kembali."
+        }
+      ],
+      "lab_steps": [
+        "Analisis header Cache-Control pada beberapa asset di situs populer.",
+        "Konfigurasi server lokal untuk mengirim instruksi max-age.",
+        "Amati behavior browser (Network tab) saat me-reload halaman dengan cache."
+      ],
+      "review_questions": [
+        "Apa perbedaan no-cache dan no-store?",
+        "Kapan kita harus menggunakan immutable cache policy?"
+      ],
+      "references": [
+        {
+          "label": "MDN HTTP Caching",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching"
         }
       ]
     },
@@ -525,6 +680,68 @@
         {
           "label": "OWASP Session Management Cheat Sheet",
           "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+        }
+      ]
+    },
+    {
+      "slug": "auth-jwt-oauth2",
+      "track": "web-development",
+      "title": "Modern Auth: JWT dan OAuth2",
+      "why_it_matters": "Aplikasi decoupling seperti SPA atau mobile apps membutuhkan state yang lebih fleksibel dibandingkan session cookie klasik.",
+      "concepts": [
+        {
+          "name": "Stateless authentication",
+          "description": "Server tidak perlu menyimpan sesi aktif karena payload JWT sudah di-sign dan cukup untuk membuktikan hak akses."
+        },
+        {
+          "name": "Access vs Refresh tokens",
+          "description": "Access token berumur pendek untuk akses harian, refresh token dipakai memperbarui access token di latar belakang."
+        }
+      ],
+      "lab_steps": [
+        "Dekode JWT (tanpa verifikasi) dan baca isi payload-nya menggunakan debugger online atau skrip.",
+        "Pahami proses signing dengan mencoba memodifikasi payload lalu memverifikasinya kembali.",
+        "Gambarkan alur dasar dari OAuth 2 authorization code flow."
+      ],
+      "review_questions": [
+        "Mengapa menyimpan JWT di localStorage berisiko rentan terhadap XSS?",
+        "Apa fungsi dari signature dalam sebuah token?"
+      ],
+      "references": [
+        {
+          "label": "JWT.io Debugger",
+          "url": "https://jwt.io/"
+        }
+      ]
+    },
+    {
+      "slug": "database-design-normalization",
+      "track": "web-development",
+      "title": "Database normalization dan constraint",
+      "why_it_matters": "Skema yang baik mencegah anomali data saat penulisan dan memastikan integritas hubungan antar entitas.",
+      "concepts": [
+        {
+          "name": "Normal forms",
+          "description": "Aturan untuk mengurangi duplikasi data dan memastikan fungsionalitas ketergantungan kolom."
+        },
+        {
+          "name": "Foreign keys",
+          "description": "Constraint untuk memaksa agar baris yang dirujuk ada sebelum baris referensi dimasukkan."
+        }
+      ],
+      "lab_steps": [
+        "Desain skema dengan tabel yang memiliki foreign key ke tabel lain.",
+        "Coba hapus baris yang sedang dirujuk tanpa cascading delete.",
+        "Identifikasi bagian mana dari skema yang berpotensi menyebabkan duplikasi data."
+      ],
+      "review_questions": [
+        "Mengapa kita terkadang melakukan denormalisasi di environment produksi?",
+        "Apa risiko tidak menggunakan constraint secara eksplisit di level database?"
+      ],
+      "references": [
+        {
+          "label": "PostgreSQL Constraints",
+          "url": "https://www.postgresql.org/docs/current/ddl-constraints.html"
         }
       ]
     },
@@ -649,6 +866,68 @@
         {
           "label": "OWASP HTTP Headers Cheat Sheet",
           "url": "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html"
+        }
+      ]
+    },
+    {
+      "slug": "background-jobs-queues",
+      "track": "web-development",
+      "title": "Background jobs dan antrean (Queues)",
+      "why_it_matters": "Beberapa tugas seperti kirim email atau proses gambar memakan waktu lama. Mengeksekusinya dalam flow API akan memblokir respons pengguna.",
+      "concepts": [
+        {
+          "name": "Message broker",
+          "description": "Sistem perantara yang menerima pesan (task) dan menyimpannya hingga pekerja (worker) siap memprosesnya."
+        },
+        {
+          "name": "Idempotent workers",
+          "description": "Worker harus dirancang agar aman dijalankan ulang jika koneksi terputus di tengah pemrosesan."
+        }
+      ],
+      "lab_steps": [
+        "Simulasikan pengiriman pesan ke antrean (bisa via memory list atau Redis/RabbitMQ lokal).",
+        "Buat skrip consumer yang memproses pesan secara asinkron.",
+        "Tinjau skenario apa yang terjadi jika consumer crash saat memproses antrean."
+      ],
+      "review_questions": [
+        "Mengapa broker penting dibanding mengeksekusi thread langsung di server utama?",
+        "Bagaimana cara mencegah duplikasi pekerjaan dalam queue?"
+      ],
+      "references": [
+        {
+          "label": "Redis Queue (RQ) Overview",
+          "url": "https://python-rq.org/"
+        }
+      ]
+    },
+    {
+      "slug": "observability-logging",
+      "track": "web-development",
+      "title": "Observability dan Logging",
+      "why_it_matters": "Jika sistem fail di production, log yang jelas adalah satu-satunya petunjuk. Logging berstruktur memudahkan pencarian otomatis.",
+      "concepts": [
+        {
+          "name": "Structured logging",
+          "description": "Menulis log dalam format JSON agar parameter dan detail kontekstual mudah dikueri oleh sistem pemantauan."
+        },
+        {
+          "name": "Correlation ID",
+          "description": "Sebuah ID unik yang melintasi berbagai layanan untuk melacak jejak request tunggal secara end-to-end."
+        }
+      ],
+      "lab_steps": [
+        "Ubah output print() biasa di skrip sederhana menjadi format JSON log.",
+        "Tambahkan field req_id untuk melacak eksekusi di beberapa level fungsi.",
+        "Analisa di mana sebaiknya sistem merotasi log."
+      ],
+      "review_questions": [
+        "Apa kelebihan struktur log JSON dibandingkan teks datar?",
+        "Mengapa log aplikasi tidak boleh diandalkan sebagai penyimpanan audit tunggal?"
+      ],
+      "references": [
+        {
+          "label": "The 12-Factor App - Logs",
+          "url": "https://12factor.net/logs"
         }
       ]
     }

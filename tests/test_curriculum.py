@@ -13,7 +13,7 @@ class CurriculumTest(unittest.TestCase):
     def test_loads_unique_topics(self) -> None:
         topics = load_curriculum(REPOSITORY_ROOT / "config" / "curriculum.json")
 
-        self.assertGreaterEqual(len(topics), 20)
+        self.assertGreaterEqual(len(topics), 30)
         self.assertEqual(len(topics), len({topic.slug for topic in topics}))
 
     def test_selection_wraps_into_next_cycle(self) -> None:
