@@ -11,6 +11,7 @@ from typing import Any
 from .activity import GitHubActivityClient
 from .curriculum import load_curriculum, select_topic
 from .journal import render_activity_report, render_note, update_readme_latest
+from .validation import scan_generated_content
 from .models import (
     ActivityReport,
     GenerationMetadata,
@@ -24,6 +25,7 @@ from .models import (
 from .openrouter import OpenRouterClient, OpenRouterError, fallback_content
 
 JAKARTA_TIMEZONE = timezone(timedelta(hours=7), name="Asia/Jakarta")
+MAX_PROGRESS_ENTRIES = 90
 
 
 @dataclass(frozen=True)
@@ -66,8 +68,12 @@ class DailyLogGenerator:
             activity=activity,
             generation=metadata,
         )
-        _write_text(root / note_path, render_note(context))
-        _write_text(root / report_path, render_activity_report(context))
+        note_content = render_note(context)
+        report_content = render_activity_report(context)
+        if scan_generated_content(note_content, report_content):
+            raise ValueError("Generated content contains a potential secret")
+        _write_text(root / note_path, note_content)
+        _write_text(root / report_path, report_content)
         self._update_readme(note_path, context)
         self._update_progress(
             ProgressUpdate(
@@ -149,6 +155,10 @@ class DailyLogGenerator:
             update.progress["next_topic_index"] = (
                 int(update.progress.get("next_topic_index", 0)) + 1
             )
+        if len(entries) > MAX_PROGRESS_ENTRIES:
+            oldest_dates = sorted(entries)[:-MAX_PROGRESS_ENTRIES]
+            for old_date in oldest_dates:
+                del entries[old_date]
         progress_path = self._config.repository_root / "data" / "progress.json"
         _write_text(
             progress_path,
@@ -160,7 +170,8 @@ def _load_progress(path: Path) -> dict[str, Any]:
     document = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(document, dict):
         raise ValueError("Progress file must contain an object")
-    if not isinstance(document.get("entries"), dict):
+    entries = document.setdefault("entries", {})
+    if not isinstance(entries, dict):
         raise ValueError("Progress entries must be an object")
     next_index = document.get("next_topic_index")
     if not isinstance(next_index, int) or next_index < 0:

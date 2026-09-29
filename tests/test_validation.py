@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.engineering_log.validation import _scan_secrets
+from scripts.engineering_log.validation import scan_repository_secrets
 
 
 class SecretScanningTest(unittest.TestCase):
@@ -16,7 +16,7 @@ class SecretScanningTest(unittest.TestCase):
                 encoding="utf-8",
             )
 
-            errors = _scan_secrets(root)
+            errors = scan_repository_secrets(root)
 
             self.assertEqual(["Potential secret detected in leaked.md"], errors)
 

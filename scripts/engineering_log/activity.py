@@ -12,6 +12,7 @@ from .models import ActivityEvent, ActivityReport
 
 GITHUB_API_URL = "https://api.github.com"
 MAX_EVENTS = 100
+MAX_EVENT_PAGES = 10
 REQUEST_TIMEOUT_SECONDS = 20
 SAFE_TEXT_PATTERN = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
 
@@ -30,7 +31,7 @@ class GitHubActivityClient:
     def fetch_for_date(self, target_date: date, timezone: tzinfo) -> ActivityReport:
         window = ActivityWindow(target_date=target_date, timezone=timezone)
         try:
-            events = self._request_events()
+            events = self._request_events(window)
         except (OSError, ValueError) as error:
             return ActivityReport(
                 status="unavailable",
@@ -50,7 +51,7 @@ class GitHubActivityClient:
             events=normalized,
         )
 
-    def _request_events(self) -> list[dict[str, object]]:
+    def _request_events(self, window: ActivityWindow) -> list[dict[str, object]]:
         username = urllib.parse.quote(self._username, safe="")
         url = f"{GITHUB_API_URL}/users/{username}/events/public?per_page={MAX_EVENTS}"
         headers = {
@@ -61,12 +62,42 @@ class GitHubActivityClient:
         if self._token:
             headers["Authorization"] = f"Bearer {self._token}"
 
-        request = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-        if not isinstance(payload, list):
-            raise ValueError("GitHub events response was not a list")
-        return [event for event in payload if isinstance(event, dict)]
+        all_events: list[dict[str, object]] = []
+        for _ in range(MAX_EVENT_PAGES):
+            request = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+                link_header = response.headers.get("Link", "")
+
+            if not isinstance(payload, list):
+                raise ValueError("GitHub events response was not a list")
+
+            page_events = [event for event in payload if isinstance(event, dict)]
+            all_events.extend(page_events)
+            if not page_events:
+                break
+
+            last_event = page_events[-1]
+            created_at = last_event.get("created_at")
+            if not isinstance(created_at, str):
+                break
+            occurred_at = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+            if occurred_at.astimezone(window.timezone).date() < window.target_date:
+                break
+
+            next_url = ""
+            for link in link_header.split(","):
+                if 'rel="next"' in link:
+                    start = link.find("<") + 1
+                    end = link.find(">")
+                    if start > 0 and end > start:
+                        next_url = link[start:end]
+                    break
+            if not next_url.startswith(f"{GITHUB_API_URL}/users/{username}/events/public?"):
+                break
+            url = next_url
+
+        return all_events
 
     def _normalize_event(
         self,

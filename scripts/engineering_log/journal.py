@@ -42,11 +42,9 @@ def render_note(context: NoteContext) -> str:
         lines.extend([f"### {concept.name}", "", concept.description, ""])
 
     lines.extend(["## Latihan", ""])
-    lines.extend(
-        f"{number}. {step}"
-        for number, step in enumerate(context.content.exercise_steps, start=1)
-    )
-    lines.extend(["", "## Aktivitas GitHub publik", ""])
+    for number, step in enumerate(context.content.exercise_steps, start=1):
+        lines.extend([f"{number}. {step}", ""])
+    lines.extend(["## Aktivitas GitHub publik", ""])
     lines.extend(_activity_lines(context.activity))
     lines.extend(["", "## Pertanyaan review", ""])
     lines.extend(f"- [ ] {question}" for question in context.content.review_questions)

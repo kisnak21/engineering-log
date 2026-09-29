@@ -9,8 +9,7 @@ on:
         default: false
         type: boolean
   schedule:
-    - cron: "37 22 * * *"
-      timezone: "Asia/Jakarta"
+    - cron: "37 15 * * *"
 
 permissions:
   contents: write
@@ -64,6 +63,11 @@ jobs:
 
       - name: Validate generated files
         run: python -m scripts.validate_repository
+
+      - name: Scan repository for secrets
+        uses: trufflesecurity/trufflehog@6640dd1d78d368a747224027afb45d21d17b224f # v3.88.2
+        with:
+          extra_args: --results=verified,unknown
 
       - name: Commit and push generated files
         env:
