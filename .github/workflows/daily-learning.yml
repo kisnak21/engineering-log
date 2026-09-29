@@ -65,7 +65,7 @@ jobs:
         run: python -m scripts.validate_repository
 
       - name: Scan repository for secrets
-        uses: trufflesecurity/trufflehog@6640dd1d78d368a747224027afb45d21d17b224f # v3.88.2
+        uses: trufflesecurity/trufflehog@v3.88.2
         with:
           extra_args: --results=verified,unknown
 
