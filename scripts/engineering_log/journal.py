@@ -28,8 +28,8 @@ def render_note(context: NoteContext) -> str:
         "",
         f"# Daily Study Brief: {topic.title}",
         "",
-        "> Draf ini dibuat otomatis dari kurikulum dan aktivitas GitHub publik. "
-        "Status pending berarti isinya belum dikonfirmasi sebagai pengalaman belajar pribadi.",
+        ("> Draf ini dibuat otomatis dari kurikulum dan aktivitas GitHub publik. "
+        "Status pending berarti isinya belum dikonfirmasi sebagai pengalaman belajar pribadi."),
         "",
         "## Fokus",
         "",
@@ -65,8 +65,8 @@ def render_note(context: NoteContext) -> str:
             "",
             "## Review manual",
             "",
-            "Setelah membaca atau mencoba latihan, ubah metadata `reviewed` menjadi `true`, "
-            "ubah `review_status` menjadi `approved`, lalu koreksi bagian yang tidak sesuai.",
+            ("Setelah membaca atau mencoba latihan, ubah metadata `reviewed` menjadi `true`, "
+            "ubah `review_status` menjadi `approved`, lalu koreksi bagian yang tidak sesuai."),
             "",
         ]
     )
@@ -106,13 +106,13 @@ def update_readme_latest(readme: str, note_path: Path, context: NoteContext) -> 
 def _activity_lines(report: ActivityReport) -> list[str]:
     if report.status != "ok":
         return [
-            "Pengambilan aktivitas GitHub tidak tersedia pada run ini. "
-            "Bagian ini tidak digunakan sebagai bukti aktivitas."
+            ("Pengambilan aktivitas GitHub tidak tersedia pada run ini. "
+            "Bagian ini tidak digunakan sebagai bukti aktivitas.")
         ]
     if not report.events:
         return [
-            "Tidak ada aktivitas publik GitHub yang terdeteksi pada tanggal ini. "
-            "Aktivitas privat atau aktivitas di luar GitHub tidak disimpulkan."
+            ("Tidak ada aktivitas publik GitHub yang terdeteksi pada tanggal ini. "
+            "Aktivitas privat atau aktivitas di luar GitHub tidak disimpulkan.")
         ]
     return [
         f"- {event.occurred_at}: [{event.repository}]({event.url}) - {event.summary}"

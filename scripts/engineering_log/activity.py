@@ -32,7 +32,7 @@ class GitHubActivityClient:
         window = ActivityWindow(target_date=target_date, timezone=timezone)
         try:
             events = self._request_events(window)
-        except (OSError, ValueError) as error:
+        except (OSError, TypeError, ValueError) as error:
             return ActivityReport(
                 status="unavailable",
                 source="GitHub public events API",
@@ -70,7 +70,7 @@ class GitHubActivityClient:
                 link_header = response.headers.get("Link", "")
 
             if not isinstance(payload, list):
-                raise ValueError("GitHub events response was not a list")
+                raise TypeError("GitHub events response was not a list")
 
             page_events = [event for event in payload if isinstance(event, dict)]
             all_events.extend(page_events)

@@ -11,7 +11,6 @@ from typing import Any
 from .activity import GitHubActivityClient
 from .curriculum import load_curriculum, select_topic
 from .journal import render_activity_report, render_note, update_readme_latest
-from .validation import scan_generated_content
 from .models import (
     ActivityReport,
     GenerationMetadata,
@@ -23,6 +22,7 @@ from .models import (
     TopicSelection,
 )
 from .openrouter import OpenRouterClient, OpenRouterError, fallback_content
+from .validation import scan_generated_content
 
 JAKARTA_TIMEZONE = timezone(timedelta(hours=7), name="Asia/Jakarta")
 MAX_PROGRESS_ENTRIES = 90
@@ -169,10 +169,10 @@ class DailyLogGenerator:
 def _load_progress(path: Path) -> dict[str, Any]:
     document = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(document, dict):
-        raise ValueError("Progress file must contain an object")
+        raise TypeError("Progress file must contain an object")
     entries = document.setdefault("entries", {})
     if not isinstance(entries, dict):
-        raise ValueError("Progress entries must be an object")
+        raise TypeError("Progress entries must be an object")
     next_index = document.get("next_topic_index")
     if not isinstance(next_index, int) or next_index < 0:
         raise ValueError("Progress next_topic_index must be a non-negative integer")
