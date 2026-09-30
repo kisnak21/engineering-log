@@ -10,7 +10,6 @@ from pathlib import Path
 from scripts.engineering_log.models import RuntimeConfig
 from scripts.engineering_log.repository import DailyLogGenerator
 
-
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 INITIAL_PROGRESS = {
     "next_topic_index": 0,
