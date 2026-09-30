@@ -1,11 +1,17 @@
 {
-  "next_topic_index": 7,
+  "next_topic_index": 8,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
       "topic_slug": "ssh-access",
       "cycle": 1,
       "note": "notes/2026/09/2026-09-30-ssh-access.md"
+    },
+    "2026-10-01": {
+      "topic_index": 7,
+      "topic_slug": "docker-images-containers",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-01-docker-images-containers.md"
     }
   }
 }
