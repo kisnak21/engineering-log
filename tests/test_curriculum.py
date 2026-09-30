@@ -5,7 +5,6 @@ from pathlib import Path
 
 from scripts.engineering_log.curriculum import load_curriculum, select_topic
 
-
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 
 

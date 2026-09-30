@@ -18,7 +18,7 @@ def main() -> int:
     try:
         config = _build_config(arguments)
         result = DailyLogGenerator(config).run()
-    except (OSError, ValueError) as error:
+    except (OSError, TypeError, ValueError) as error:
         print(f"Generation failed: {error}", file=sys.stderr)
         return 1
 
