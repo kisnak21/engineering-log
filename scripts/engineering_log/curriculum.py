@@ -39,8 +39,13 @@ def _parse_topic(value: Any) -> Topic:
         track=_require_string(record, "track"),
         title=_require_string(record, "title"),
         why_it_matters=_require_string(record, "why_it_matters"),
-        concepts=tuple(_parse_concept(item) for item in _require_list(record, "concepts")),
-        lab_steps=tuple(_require_string_value(item, "lab step") for item in _require_list(record, "lab_steps")),
+        concepts=tuple(
+            _parse_concept(item) for item in _require_list(record, "concepts")
+        ),
+        lab_steps=tuple(
+            _require_string_value(item, "lab step")
+            for item in _require_list(record, "lab_steps")
+        ),
         review_questions=tuple(
             _require_string_value(item, "review question")
             for item in _require_list(record, "review_questions")

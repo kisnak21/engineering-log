@@ -33,10 +33,16 @@ def main() -> int:
 
 
 def _parse_arguments() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate one daily engineering study brief")
+    parser = argparse.ArgumentParser(
+        description="Generate one daily engineering study brief"
+    )
     parser.add_argument("--date", help="Target date in YYYY-MM-DD format")
-    parser.add_argument("--force", action="store_true", help="Replace an existing note for the date")
-    parser.add_argument("--offline", action="store_true", help="Skip all external API calls")
+    parser.add_argument(
+        "--force", action="store_true", help="Replace an existing note for the date"
+    )
+    parser.add_argument(
+        "--offline", action="store_true", help="Skip all external API calls"
+    )
     parser.add_argument(
         "--repository-root",
         type=Path,

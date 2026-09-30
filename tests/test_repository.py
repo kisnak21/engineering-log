@@ -39,8 +39,10 @@ class RepositoryGenerationTest(unittest.TestCase):
             self.assertTrue(first_result.created)
             self.assertFalse(second_result.created)
             note = (root / first_result.note_path).read_text(encoding="utf-8")
-            self.assertIn("review_status: \"pending\"", note)
-            progress = json.loads((root / "data" / "progress.json").read_text(encoding="utf-8"))
+            self.assertIn('review_status: "pending"', note)
+            progress = json.loads(
+                (root / "data" / "progress.json").read_text(encoding="utf-8")
+            )
             self.assertEqual(1, progress["next_topic_index"])
 
     def _create_fixture_files(self, root: Path) -> None:

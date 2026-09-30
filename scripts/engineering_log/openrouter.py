@@ -132,14 +132,18 @@ class OpenRouterClient:
                 method="POST",
             )
             try:
-                with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+                with urllib.request.urlopen(
+                    request, timeout=REQUEST_TIMEOUT_SECONDS
+                ) as response:
                     document = json.loads(response.read().decode("utf-8"))
                 if not isinstance(document, dict):
                     raise OpenRouterError("OpenRouter response was not an object")
                 return document
             except urllib.error.HTTPError as error:
                 if not _is_retryable(error.code) or attempt == MAX_ATTEMPTS:
-                    raise OpenRouterError(f"OpenRouter returned HTTP {error.code}") from error
+                    raise OpenRouterError(
+                        f"OpenRouter returned HTTP {error.code}"
+                    ) from error
                 time.sleep(_retry_delay_seconds(error, attempt))
             except (urllib.error.URLError, TimeoutError) as error:
                 if attempt == MAX_ATTEMPTS:
@@ -192,7 +196,9 @@ def _parse_study_content(raw_content: str) -> StudyContent:
         *(concept.description for concept in concepts),
     ]
     if any(FIRST_PERSON_CLAIM.search(text) for text in generated_text):
-        raise OpenRouterError("Generated content made an unsupported first-person claim")
+        raise OpenRouterError(
+            "Generated content made an unsupported first-person claim"
+        )
     return StudyContent(
         focus=focus,
         concepts=concepts,
@@ -242,7 +248,10 @@ def _parse_text_list(
     bounds: ListBounds,
 ) -> tuple[str, ...]:
     value = document.get(key)
-    if not isinstance(value, list) or not bounds.minimum <= len(value) <= bounds.maximum:
+    if (
+        not isinstance(value, list)
+        or not bounds.minimum <= len(value) <= bounds.maximum
+    ):
         raise OpenRouterError(
             f"{key} must contain {bounds.minimum} to {bounds.maximum} items"
         )
@@ -256,7 +265,9 @@ def _required_text(document: dict[str, Any], key: str) -> str:
 def _clean_generated_text(value: Any, label: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise OpenRouterError(f"{label} must be a non-empty string")
-    cleaned = value.replace("—", "-").replace("–", "-").replace("\r", " ").replace("\n", " ")
+    cleaned = (
+        value.replace("—", "-").replace("–", "-").replace("\r", " ").replace("\n", " ")
+    )
     cleaned = re.sub(r"\s+", " ", cleaned).strip()
     if len(cleaned) > MAX_TEXT_LENGTH:
         raise OpenRouterError(f"{label} exceeded the maximum length")

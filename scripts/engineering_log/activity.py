@@ -65,7 +65,9 @@ class GitHubActivityClient:
         all_events: list[dict[str, object]] = []
         for _ in range(MAX_EVENT_PAGES):
             request = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+            with urllib.request.urlopen(
+                request, timeout=REQUEST_TIMEOUT_SECONDS
+            ) as response:
                 payload = json.loads(response.read().decode("utf-8"))
                 link_header = response.headers.get("Link", "")
 
@@ -93,7 +95,9 @@ class GitHubActivityClient:
                     if start > 0 and end > start:
                         next_url = link[start:end]
                     break
-            if not next_url.startswith(f"{GITHUB_API_URL}/users/{username}/events/public?"):
+            if not next_url.startswith(
+                f"{GITHUB_API_URL}/users/{username}/events/public?"
+            ):
                 break
             url = next_url
 
@@ -107,14 +111,18 @@ class GitHubActivityClient:
         created_at = raw_event.get("created_at")
         repository = _nested_string(raw_event, "repo", "name")
         event_type = raw_event.get("type")
-        if not isinstance(created_at, str) or not repository or not isinstance(event_type, str):
+        if (
+            not isinstance(created_at, str)
+            or not repository
+            or not isinstance(event_type, str)
+        ):
             return None
         if repository.lower() == f"{self._username}/engineering-log".lower():
             return None
 
-        occurred_at = datetime.fromisoformat(created_at.replace("Z", "+00:00")).astimezone(
-            window.timezone
-        )
+        occurred_at = datetime.fromisoformat(
+            created_at.replace("Z", "+00:00")
+        ).astimezone(window.timezone)
         if occurred_at.date() != window.target_date:
             return None
 
@@ -146,17 +154,26 @@ def _describe_event(
     if event_type == "PullRequestEvent":
         action = str(details.get("action", "updated"))
         number = details.get("number", "?")
-        url = f"{repository_url}/pull/{number}" if str(number).isdigit() else repository_url
+        url = (
+            f"{repository_url}/pull/{number}"
+            if str(number).isdigit()
+            else repository_url
+        )
         return f"Pull request #{number} {action}", url
     if event_type == "IssuesEvent":
         action = str(details.get("action", "updated"))
         issue = details.get("issue")
         number = issue.get("number", "?") if isinstance(issue, dict) else "?"
-        url = f"{repository_url}/issues/{number}" if str(number).isdigit() else repository_url
+        url = (
+            f"{repository_url}/issues/{number}"
+            if str(number).isdigit()
+            else repository_url
+        )
         return f"Issue #{number} {action}", url
     if event_type == "CreateEvent":
         ref_type = str(details.get("ref_type", "resource"))
-        ref = details.get("ref")
+        raw_ref = details.get("ref")
+        ref = str(raw_ref) if isinstance(raw_ref, str) else ""
         suffix = f" {ref}" if ref else ""
         return f"Membuat {ref_type}{suffix}", repository_url
     if event_type == "ReleaseEvent":

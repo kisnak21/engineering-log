@@ -62,7 +62,9 @@ def _validate_curriculum(root: Path) -> list[str]:
 
 def _validate_progress(root: Path) -> list[str]:
     try:
-        progress = json.loads((root / "data" / "progress.json").read_text(encoding="utf-8"))
+        progress = json.loads(
+            (root / "data" / "progress.json").read_text(encoding="utf-8")
+        )
     except (OSError, json.JSONDecodeError) as error:
         return [f"Invalid progress file: {error}"]
     if not isinstance(progress, dict):
@@ -105,5 +107,3 @@ def _validate_notes(root: Path) -> list[str]:
         if "—" in content:
             errors.append(f"{note.relative_to(root)} contains an em dash")
     return errors
-
-

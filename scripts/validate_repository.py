@@ -7,7 +7,9 @@ from scripts.engineering_log.validation import validate_repository
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate generated engineering log files")
+    parser = argparse.ArgumentParser(
+        description="Validate generated engineering log files"
+    )
     parser.add_argument(
         "--repository-root",
         type=Path,
