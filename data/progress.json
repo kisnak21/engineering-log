@@ -1,3 +1,11 @@
 {
-  "next_topic_index": 6
+  "next_topic_index": 7,
+  "entries": {
+    "2026-09-30": {
+      "topic_index": 6,
+      "topic_slug": "ssh-access",
+      "cycle": 1,
+      "note": "notes/2026/09/2026-09-30-ssh-access.md"
+    }
+  }
 }
