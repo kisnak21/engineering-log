@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-01: Docker image dan container](notes/2026/10/2026-10-01-docker-images-containers.md)
+[2026-10-02: Menata service dengan Docker Compose](notes/2026/10/2026-10-02-docker-compose.md)
 
-Track: `homelab` | Review: `pending` | Generator: `openrouter`
+Track: `homelab` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis

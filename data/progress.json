@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 8,
+  "next_topic_index": 9,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -12,6 +12,12 @@
       "topic_slug": "docker-images-containers",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-01-docker-images-containers.md"
+    },
+    "2026-10-02": {
+      "topic_index": 8,
+      "topic_slug": "docker-compose",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-02-docker-compose.md"
     }
   }
 }
