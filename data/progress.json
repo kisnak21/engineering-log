@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 9,
+  "next_topic_index": 10,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -18,6 +18,12 @@
       "topic_slug": "docker-compose",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-02-docker-compose.md"
+    },
+    "2026-10-03": {
+      "topic_index": 9,
+      "topic_slug": "docker-storage-backup",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-03-docker-storage-backup.md"
     }
   }
 }
