@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-04: Docker network dan komunikasi service](notes/2026/10/2026-10-04-container-networking.md)
+[2026-10-05: Reverse proxy untuk beberapa service](notes/2026/10/2026-10-05-reverse-proxy.md)
 
-Track: `homelab` | Review: `pending` | Generator: `openrouter`
+Track: `homelab` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis

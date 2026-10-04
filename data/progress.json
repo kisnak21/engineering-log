@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 11,
+  "next_topic_index": 12,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -30,6 +30,12 @@
       "topic_slug": "container-networking",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-04-container-networking.md"
+    },
+    "2026-10-05": {
+      "topic_index": 11,
+      "topic_slug": "reverse-proxy",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-05-reverse-proxy.md"
     }
   }
 }
