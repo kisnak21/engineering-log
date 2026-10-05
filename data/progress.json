@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 12,
+  "next_topic_index": 13,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -36,6 +36,12 @@
       "topic_slug": "reverse-proxy",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-05-reverse-proxy.md"
+    },
+    "2026-10-06": {
+      "topic_index": 12,
+      "topic_slug": "vpn-wireguard",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-06-vpn-wireguard.md"
     }
   }
 }
