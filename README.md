@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-06: VPN dengan WireGuard](notes/2026/10/2026-10-06-vpn-wireguard.md)
+[2026-10-07: TLS certificate dan HTTPS](notes/2026/10/2026-10-07-tls-certificates.md)
 
 Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
