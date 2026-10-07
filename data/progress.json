@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 14,
+  "next_topic_index": 15,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -48,6 +48,12 @@
       "topic_slug": "tls-certificates",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-07-tls-certificates.md"
+    },
+    "2026-10-08": {
+      "topic_index": 14,
+      "topic_slug": "monitoring-and-alerting",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-08-monitoring-and-alerting.md"
     }
   }
 }
