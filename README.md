@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-08: Monitoring, metric, dan alert](notes/2026/10/2026-10-08-monitoring-and-alerting.md)
+[2026-10-09: Configuration management dengan Ansible](notes/2026/10/2026-10-09-ansible-basics.md)
 
 Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->

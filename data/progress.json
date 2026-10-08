@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 15,
+  "next_topic_index": 16,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -54,6 +54,12 @@
       "topic_slug": "monitoring-and-alerting",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-08-monitoring-and-alerting.md"
+    },
+    "2026-10-09": {
+      "topic_index": 15,
+      "topic_slug": "ansible-basics",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-09-ansible-basics.md"
     }
   }
 }
