@@ -83,7 +83,7 @@ class GitHubActivityClient:
             created_at = last_event.get("created_at")
             if not isinstance(created_at, str):
                 break
-            occurred_at = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+            occurred_at = datetime.fromisoformat(created_at)
             if occurred_at.astimezone(window.timezone).date() < window.target_date:
                 break
 
@@ -120,9 +120,7 @@ class GitHubActivityClient:
         if repository.lower() == f"{self._username}/engineering-log".lower():
             return None
 
-        occurred_at = datetime.fromisoformat(
-            created_at.replace("Z", "+00:00")
-        ).astimezone(window.timezone)
+        occurred_at = datetime.fromisoformat(created_at).astimezone(window.timezone)
         if occurred_at.date() != window.target_date:
             return None
 

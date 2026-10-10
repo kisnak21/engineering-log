@@ -36,7 +36,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install code quality tools
-        run: python -m pip install ruff mypy
+        run: python -m pip install "ruff==0.16.9" "mypy==2.3.1"
 
       - name: Lint and type check
         run: |
