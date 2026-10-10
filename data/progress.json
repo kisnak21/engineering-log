@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 17,
+  "next_topic_index": 18,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -66,6 +66,12 @@
       "topic_slug": "storage-zfs-raid",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-10-storage-zfs-raid.md"
+    },
+    "2026-10-11": {
+      "topic_index": 17,
+      "topic_slug": "http-request-response",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-11-http-request-response.md"
     }
   }
 }
