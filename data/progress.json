@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 16,
+  "next_topic_index": 17,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -60,6 +60,12 @@
       "topic_slug": "ansible-basics",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-09-ansible-basics.md"
+    },
+    "2026-10-10": {
+      "topic_index": 16,
+      "topic_slug": "storage-zfs-raid",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-10-storage-zfs-raid.md"
     }
   }
 }
