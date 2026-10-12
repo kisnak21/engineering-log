@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 19,
+  "next_topic_index": 20,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -78,6 +78,12 @@
       "topic_slug": "caching-strategies",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-12-caching-strategies.md"
+    },
+    "2026-10-13": {
+      "topic_index": 19,
+      "topic_slug": "frontend-rendering",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-13-frontend-rendering.md"
     }
   }
 }
