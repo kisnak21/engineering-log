@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 20,
+  "next_topic_index": 21,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -84,6 +84,12 @@
       "topic_slug": "frontend-rendering",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-13-frontend-rendering.md"
+    },
+    "2026-10-14": {
+      "topic_index": 20,
+      "topic_slug": "api-contracts",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-14-api-contracts.md"
     }
   }
 }
