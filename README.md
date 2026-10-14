@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-14: Kontrak API dan penanganan error](notes/2026/10/2026-10-14-api-contracts.md)
+[2026-10-15: Session, cookie, dan autentikasi web](notes/2026/10/2026-10-15-session-security.md)
 
-Track: `web-development` | Review: `pending` | Generator: `openrouter`
+Track: `web-development` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
