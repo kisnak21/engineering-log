@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 22,
+  "next_topic_index": 23,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -96,6 +96,12 @@
       "topic_slug": "session-security",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-15-session-security.md"
+    },
+    "2026-10-16": {
+      "topic_index": 22,
+      "topic_slug": "auth-jwt-oauth2",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-16-auth-jwt-oauth2.md"
     }
   }
 }
