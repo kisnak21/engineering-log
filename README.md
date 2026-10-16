@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-16: Modern Auth: JWT dan OAuth2](notes/2026/10/2026-10-16-auth-jwt-oauth2.md)
+[2026-10-17: Database normalization dan constraint](notes/2026/10/2026-10-17-database-design-normalization.md)
 
 Track: `web-development` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
