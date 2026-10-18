@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 25,
+  "next_topic_index": 26,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -114,6 +114,12 @@
       "topic_slug": "postgresql-indexes",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-18-postgresql-indexes.md"
+    },
+    "2026-10-19": {
+      "topic_index": 25,
+      "topic_slug": "automated-testing",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-19-automated-testing.md"
     }
   }
 }
