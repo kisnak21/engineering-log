@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 27,
+  "next_topic_index": 28,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -126,6 +126,12 @@
       "topic_slug": "github-actions-ci",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-20-github-actions-ci.md"
+    },
+    "2026-10-21": {
+      "topic_index": 27,
+      "topic_slug": "web-security-headers",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-21-web-security-headers.md"
     }
   }
 }
