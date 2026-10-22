@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-22: Background jobs dan antrean (Queues)](notes/2026/10/2026-10-22-background-jobs-queues.md)
+[2026-10-23: Observability dan Logging](notes/2026/10/2026-10-23-observability-logging.md)
 
-Track: `web-development` | Review: `pending` | Generator: `curriculum-fallback`
+Track: `web-development` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis

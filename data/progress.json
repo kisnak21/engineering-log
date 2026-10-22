@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 29,
+  "next_topic_index": 30,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -138,6 +138,12 @@
       "topic_slug": "background-jobs-queues",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-22-background-jobs-queues.md"
+    },
+    "2026-10-23": {
+      "topic_index": 29,
+      "topic_slug": "observability-logging",
+      "cycle": 1,
+      "note": "notes/2026/10/2026-10-23-observability-logging.md"
     }
   }
 }
