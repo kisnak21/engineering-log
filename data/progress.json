@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 30,
+  "next_topic_index": 31,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -144,6 +144,12 @@
       "topic_slug": "observability-logging",
       "cycle": 1,
       "note": "notes/2026/10/2026-10-23-observability-logging.md"
+    },
+    "2026-10-24": {
+      "topic_index": 0,
+      "topic_slug": "linux-filesystem",
+      "cycle": 2,
+      "note": "notes/2026/10/2026-10-24-linux-filesystem.md"
     }
   }
 }

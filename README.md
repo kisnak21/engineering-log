@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-23: Observability dan Logging](notes/2026/10/2026-10-23-observability-logging.md)
+[2026-10-24: Linux filesystem dan path](notes/2026/10/2026-10-24-linux-filesystem.md)
 
-Track: `web-development` | Review: `pending` | Generator: `openrouter`
+Track: `homelab` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
