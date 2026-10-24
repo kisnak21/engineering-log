@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-24: Linux filesystem dan path](notes/2026/10/2026-10-24-linux-filesystem.md)
+[2026-10-25: User, group, dan permission Linux](notes/2026/10/2026-10-25-linux-users-permissions.md)
 
-Track: `homelab` | Review: `pending` | Generator: `curriculum-fallback`
+Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis

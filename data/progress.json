@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 31,
+  "next_topic_index": 32,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -150,6 +150,12 @@
       "topic_slug": "linux-filesystem",
       "cycle": 2,
       "note": "notes/2026/10/2026-10-24-linux-filesystem.md"
+    },
+    "2026-10-25": {
+      "topic_index": 1,
+      "topic_slug": "linux-users-permissions",
+      "cycle": 2,
+      "note": "notes/2026/10/2026-10-25-linux-users-permissions.md"
     }
   }
 }
