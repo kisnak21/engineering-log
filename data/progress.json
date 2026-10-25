@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 32,
+  "next_topic_index": 33,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -156,6 +156,12 @@
       "topic_slug": "linux-users-permissions",
       "cycle": 2,
       "note": "notes/2026/10/2026-10-25-linux-users-permissions.md"
+    },
+    "2026-10-26": {
+      "topic_index": 2,
+      "topic_slug": "processes-and-systemd",
+      "cycle": 2,
+      "note": "notes/2026/10/2026-10-26-processes-and-systemd.md"
     }
   }
 }
