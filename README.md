@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-27: IP address, subnet, dan routing](notes/2026/10/2026-10-27-ip-subnet-and-routing.md)
+[2026-10-28: Dasar firewall (UFW/iptables)](notes/2026/10/2026-10-28-firewall-basics.md)
 
 Track: `homelab` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->

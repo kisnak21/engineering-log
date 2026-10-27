@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 34,
+  "next_topic_index": 35,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -168,6 +168,12 @@
       "topic_slug": "ip-subnet-and-routing",
       "cycle": 2,
       "note": "notes/2026/10/2026-10-27-ip-subnet-and-routing.md"
+    },
+    "2026-10-28": {
+      "topic_index": 4,
+      "topic_slug": "firewall-basics",
+      "cycle": 2,
+      "note": "notes/2026/10/2026-10-28-firewall-basics.md"
     }
   }
 }
