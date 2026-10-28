@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-28: Dasar firewall (UFW/iptables)](notes/2026/10/2026-10-28-firewall-basics.md)
+[2026-10-29: DNS dan resolusi nama](notes/2026/10/2026-10-29-dns-basics.md)
 
-Track: `homelab` | Review: `pending` | Generator: `curriculum-fallback`
+Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
