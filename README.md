@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-10-29: DNS dan resolusi nama](notes/2026/10/2026-10-29-dns-basics.md)
+[2026-10-30: SSH dan autentikasi berbasis key](notes/2026/10/2026-10-30-ssh-access.md)
 
 Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->

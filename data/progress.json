@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 36,
+  "next_topic_index": 37,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -180,6 +180,12 @@
       "topic_slug": "dns-basics",
       "cycle": 2,
       "note": "notes/2026/10/2026-10-29-dns-basics.md"
+    },
+    "2026-10-30": {
+      "topic_index": 6,
+      "topic_slug": "ssh-access",
+      "cycle": 2,
+      "note": "notes/2026/10/2026-10-30-ssh-access.md"
     }
   }
 }
