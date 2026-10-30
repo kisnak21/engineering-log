@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 37,
+  "next_topic_index": 38,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -186,6 +186,12 @@
       "topic_slug": "ssh-access",
       "cycle": 2,
       "note": "notes/2026/10/2026-10-30-ssh-access.md"
+    },
+    "2026-10-31": {
+      "topic_index": 7,
+      "topic_slug": "docker-images-containers",
+      "cycle": 2,
+      "note": "notes/2026/10/2026-10-31-docker-images-containers.md"
     }
   }
 }
