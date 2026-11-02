@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 40,
+  "next_topic_index": 41,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -204,6 +204,12 @@
       "topic_slug": "docker-storage-backup",
       "cycle": 2,
       "note": "notes/2026/11/2026-11-02-docker-storage-backup.md"
+    },
+    "2026-11-03": {
+      "topic_index": 10,
+      "topic_slug": "container-networking",
+      "cycle": 2,
+      "note": "notes/2026/11/2026-11-03-container-networking.md"
     }
   }
 }

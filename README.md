@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-02: Docker volume dan dasar backup](notes/2026/11/2026-11-02-docker-storage-backup.md)
+[2026-11-03: Docker network dan komunikasi service](notes/2026/11/2026-11-03-container-networking.md)
 
 Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
