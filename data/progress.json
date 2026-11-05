@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 43,
+  "next_topic_index": 44,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -222,6 +222,12 @@
       "topic_slug": "vpn-wireguard",
       "cycle": 2,
       "note": "notes/2026/11/2026-11-05-vpn-wireguard.md"
+    },
+    "2026-11-06": {
+      "topic_index": 13,
+      "topic_slug": "tls-certificates",
+      "cycle": 2,
+      "note": "notes/2026/11/2026-11-06-tls-certificates.md"
     }
   }
 }
