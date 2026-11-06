@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-06: TLS certificate dan HTTPS](notes/2026/11/2026-11-06-tls-certificates.md)
+[2026-11-07: Monitoring, metric, dan alert](notes/2026/11/2026-11-07-monitoring-and-alerting.md)
 
 Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
