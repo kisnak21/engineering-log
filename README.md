@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-08: Configuration management dengan Ansible](notes/2026/11/2026-11-08-ansible-basics.md)
+[2026-11-09: Manajemen Storage dan ZFS](notes/2026/11/2026-11-09-storage-zfs-raid.md)
 
-Track: `homelab` | Review: `pending` | Generator: `curriculum-fallback`
+Track: `homelab` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
