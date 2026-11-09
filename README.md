@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-09: Manajemen Storage dan ZFS](notes/2026/11/2026-11-09-storage-zfs-raid.md)
+[2026-11-10: HTTP request dan response](notes/2026/11/2026-11-10-http-request-response.md)
 
-Track: `homelab` | Review: `pending` | Generator: `openrouter`
+Track: `web-development` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
