@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 48,
+  "next_topic_index": 49,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -252,6 +252,12 @@
       "topic_slug": "http-request-response",
       "cycle": 2,
       "note": "notes/2026/11/2026-11-10-http-request-response.md"
+    },
+    "2026-11-11": {
+      "topic_index": 18,
+      "topic_slug": "caching-strategies",
+      "cycle": 2,
+      "note": "notes/2026/11/2026-11-11-caching-strategies.md"
     }
   }
 }

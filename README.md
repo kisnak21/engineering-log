@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-10: HTTP request dan response](notes/2026/11/2026-11-10-http-request-response.md)
+[2026-11-11: Strategi caching dan Cache-Control](notes/2026/11/2026-11-11-caching-strategies.md)
 
 Track: `web-development` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
