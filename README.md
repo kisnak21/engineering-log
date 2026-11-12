@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-12: Rendering frontend dan hydration](notes/2026/11/2026-11-12-frontend-rendering.md)
+[2026-11-13: Kontrak API dan penanganan error](notes/2026/11/2026-11-13-api-contracts.md)
 
-Track: `web-development` | Review: `pending` | Generator: `openrouter`
+Track: `web-development` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
