@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 51,
+  "next_topic_index": 52,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -270,6 +270,12 @@
       "topic_slug": "api-contracts",
       "cycle": 2,
       "note": "notes/2026/11/2026-11-13-api-contracts.md"
+    },
+    "2026-11-14": {
+      "topic_index": 21,
+      "topic_slug": "session-security",
+      "cycle": 2,
+      "note": "notes/2026/11/2026-11-14-session-security.md"
     }
   }
 }
