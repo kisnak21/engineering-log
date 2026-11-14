@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-14: Session, cookie, dan autentikasi web](notes/2026/11/2026-11-14-session-security.md)
+[2026-11-15: Modern Auth: JWT dan OAuth2](notes/2026/11/2026-11-15-auth-jwt-oauth2.md)
 
 Track: `web-development` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
