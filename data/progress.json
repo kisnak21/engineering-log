@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 53,
+  "next_topic_index": 54,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -282,6 +282,12 @@
       "topic_slug": "auth-jwt-oauth2",
       "cycle": 2,
       "note": "notes/2026/11/2026-11-15-auth-jwt-oauth2.md"
+    },
+    "2026-11-16": {
+      "topic_index": 23,
+      "topic_slug": "database-design-normalization",
+      "cycle": 2,
+      "note": "notes/2026/11/2026-11-16-database-design-normalization.md"
     }
   }
 }
