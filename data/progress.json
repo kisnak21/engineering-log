@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 54,
+  "next_topic_index": 55,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -288,6 +288,12 @@
       "topic_slug": "database-design-normalization",
       "cycle": 2,
       "note": "notes/2026/11/2026-11-16-database-design-normalization.md"
+    },
+    "2026-11-17": {
+      "topic_index": 24,
+      "topic_slug": "postgresql-indexes",
+      "cycle": 2,
+      "note": "notes/2026/11/2026-11-17-postgresql-indexes.md"
     }
   }
 }

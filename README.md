@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-16: Database normalization dan constraint](notes/2026/11/2026-11-16-database-design-normalization.md)
+[2026-11-17: Index PostgreSQL dan query plan](notes/2026/11/2026-11-17-postgresql-indexes.md)
 
-Track: `web-development` | Review: `pending` | Generator: `curriculum-fallback`
+Track: `web-development` | Review: `pending` | Generator: `openrouter`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
