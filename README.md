@@ -7,9 +7,9 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-17: Index PostgreSQL dan query plan](notes/2026/11/2026-11-17-postgresql-indexes.md)
+[2026-11-18: Strategi automated testing](notes/2026/11/2026-11-18-automated-testing.md)
 
-Track: `web-development` | Review: `pending` | Generator: `openrouter`
+Track: `web-development` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
 
 ## Yang dijalankan otomatis
