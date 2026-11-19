@@ -7,7 +7,7 @@ Catatan otomatis bukan klaim bahwa seluruh materi sudah dipelajari atau dikuasai
 ## Catatan terbaru
 
 <!-- latest-entry:start -->
-[2026-11-19: CI dengan GitHub Actions](notes/2026/11/2026-11-19-github-actions-ci.md)
+[2026-11-20: Security header untuk aplikasi web](notes/2026/11/2026-11-20-web-security-headers.md)
 
 Track: `web-development` | Review: `pending` | Generator: `curriculum-fallback`
 <!-- latest-entry:end -->
