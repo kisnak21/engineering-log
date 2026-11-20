@@ -1,5 +1,5 @@
 {
-  "next_topic_index": 58,
+  "next_topic_index": 59,
   "entries": {
     "2026-09-30": {
       "topic_index": 6,
@@ -312,6 +312,12 @@
       "topic_slug": "web-security-headers",
       "cycle": 2,
       "note": "notes/2026/11/2026-11-20-web-security-headers.md"
+    },
+    "2026-11-21": {
+      "topic_index": 28,
+      "topic_slug": "background-jobs-queues",
+      "cycle": 2,
+      "note": "notes/2026/11/2026-11-21-background-jobs-queues.md"
     }
   }
 }
